@@ -1,0 +1,5 @@
+.vscode/
+docker-compose.yml
+*.o
+TemperatureService
+*.dSYM
