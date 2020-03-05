@@ -34,7 +34,6 @@ int main()
 {
     Temperature* bodyTemp = new Temperature(98.6);
 
-/****************************/
     // Create the kafka configuration object
     RdKafka::Conf *conf = RdKafka::Conf::create(RdKafka::Conf::CONF_GLOBAL);
     std::string errstr;
@@ -64,10 +63,8 @@ int main()
     // Write to the producer
     std::string xml = getXmlString(bodyTemp);
 
-/****************************/
     while (true) {
         processInput();
-/****************************/
         retry:
             RdKafka::ErrorCode err = producer->produce(topic, RdKafka::Topic::PARTITION_UA, RdKafka::Producer::RK_MSG_COPY, const_cast<char *>(xml.c_str()), xml.size(), NULL, 0, 0, NULL, NULL);
 
@@ -84,7 +81,6 @@ int main()
             }
         
         producer->poll(0);
-/****************************/
         update();
         render(bodyTemp);
 

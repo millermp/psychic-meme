@@ -1,14 +1,8 @@
 FROM centos:8 as build
-#COPY confluent.repo /etc/yum.repos.d/
-#RUN rpm --import https://packages.confluent.io/rpm/5.4/archive.key \
-#    && yum update -y \
-#    && yum groupinstall "Development Tools" -y \
-#    && yum install curl which librdkafka-devel -y \
-#    && yum clean -y all
 
 RUN yum update -y \
     && yum groupinstall "Development Tools" -y \
-    && yum install curl which unzip -y \
+    && yum install curl -y \
     && yum clean -y all
 
 WORKDIR /librdkafka-build

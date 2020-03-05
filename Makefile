@@ -1,8 +1,6 @@
 RM=rm -f
 
 CXXFLAGS=-g -Wall -Werror -std=c++11
-CPPFLAGS=
-LDFLAGS=
 LDLIBS=-lrdkafka++
 
 SRCS=Temperature.cpp main.cpp
